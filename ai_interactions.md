@@ -27,10 +27,13 @@
 > Document how you used AI to help generate or improve tests.
 
 | Edge Case | Prompt Used | AI-Suggested Test | Did It Pass? | Your Reasoning |
-|-----------|-------------|-------------------|--------------|----------------|
-| | | | | |
-| | | | | |
-| | | | | |
+
+Prompt used to generate edge cases:
+identify three potential "edge case" inputs (e.g., negative numbers, decimals, or extremely large values) that might still break your game. then, generate a suite of pytest cases that verify your game handles these inputs gracefully.
+
+Edge Case 1: Negative numbers (e.g. -5). Why choose it: Usually people only guess positive numbers, the game logistics might not recognize '-' as negative sign and misread it as a string.
+Edge Case 2: Decimal inputs (e.g. 50.9) Why choose it: Not sure if the logistics can read demical numbers as a whole or not, and wether it can convert them safely into an integer.
+Edge Case 3: Extremely large values (e.g. 999999999999999). Why choose it: to see if it can handle larger numbers without crashing the game.
 
 ---
 
