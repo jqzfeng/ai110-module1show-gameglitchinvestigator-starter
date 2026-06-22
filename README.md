@@ -25,19 +25,20 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- Game purpose: A number guessing game built with Streamlit where the player tries to guess a secret value and receives hints.
+- Bugs found: The guess parser rejected text like "guess 50", the hint logic could be wrong, and game logic was mixed into the UI code.
+- Fixes applied: Moved core logic into `logic_utils.py`, fixed guess parsing for text input, corrected hint handling, and simplified the app state flow.
+
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User enters a guess of 50
+2. Game returns "Too High"
+3. User enters a guess of 40 → "Too Low"
+4. Score updates correctly after each guess
+5. Game ends after the correct guess
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
