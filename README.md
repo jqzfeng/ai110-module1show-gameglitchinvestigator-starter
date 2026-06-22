@@ -3,7 +3,7 @@
 ## 🚨 The Situation
 
 You asked an AI to build a simple "Number Guessing Game" using Streamlit.
-It wrote the code, ran away, and now the game is unplayable. 
+It wrote the code, ran away, and now the game is unplayable.
 
 - You can't win.
 - The hints lie to you.
@@ -24,6 +24,10 @@ It wrote the code, ran away, and now the game is unplayable.
    - Keep fixing until all tests pass!
 
 ## 📝 Document Your Experience
+
+- [ ] Describe the game's purpose.
+- [ ] Detail which bugs you found.
+- [ ] Explain what fixes you applied
 
 - Game purpose: A number guessing game built with Streamlit where the player tries to guess a secret value and receives hints.
 - Bugs found: The guess parser rejected text like "guess 50", the hint logic could be wrong, and game logic was mixed into the UI code.
@@ -49,6 +53,31 @@ Describe your fixed game in numbered steps so a reader can follow along without 
 # pytest tests/
 # ========================= X passed in 0.XXs =========================
 ```
+
+python3 -m pytest -v
+============================= test session starts =============================
+platform darwin -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- /Library/Frameworks/Python.framework/Versions/3.13/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/qiuzifeng/Desktop/CodePath 2026/ai110-module1show-gameglitchinvestigator-starter
+plugins: anyio-4.13.0
+collected 14 items
+
+tests/test_game_logic.py::test_parse_guess_number_in_text PASSED        [  7%]
+tests/test_game_logic.py::test_parse_guess_with_phrase PASSED           [ 14%]
+tests/test_game_logic.py::test_parse_guess_negative_number PASSED       [ 21%]
+tests/test_game_logic.py::test_evaluate_guess_negative_number PASSED    [ 28%]
+tests/test_game_logic.py::test_parse_guess_decimal_input PASSED         [ 35%]
+tests/test_game_logic.py::test_evaluate_guess_decimal_input PASSED      [ 42%]
+tests/test_game_logic.py::test_parse_guess_extremely_large_value PASSED [ 50%]
+tests/test_game_logic.py::test_evaluate_guess_extremely_large_value PASSED [ 57%]
+tests/test_game_logic.py::test_get_attempt_limit_values PASSED          [ 64%]
+tests/test_game_logic.py::test_new_game_state_resets_values PASSED      [ 71%]
+tests/test_game_logic.py::test_evaluate_guess_handles_guess_text PASSED [ 78%]
+tests/test_game_logic.py::test_winning_guess PASSED                     [ 85%]
+tests/test_game_logic.py::test_guess_too_high PASSED                    [ 92%]
+tests/test_game_logic.py::test_guess_too_low PASSED                     [100%]
+
+============================= 14 passed in 0.02s ==============================
 
 ## 🚀 Stretch Features
 

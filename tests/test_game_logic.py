@@ -20,6 +20,51 @@ def test_parse_guess_with_phrase():
     assert error is None
 
 
+def test_parse_guess_negative_number():
+    ok, value, error = parse_guess("guess -5")
+    assert ok is True
+    assert value == -5
+    assert error is None
+
+
+def test_evaluate_guess_negative_number():
+    result = evaluate_guess("guess -5", 10, 0, 1)
+    assert result["ok"] is True
+    assert result["guess"] == -5
+    assert result["outcome"] == "Too Low"
+    assert result["score"] == -5
+
+
+def test_parse_guess_decimal_input():
+    ok, value, error = parse_guess("guess 50.9")
+    assert ok is True
+    assert value == 50
+    assert error is None
+
+
+def test_evaluate_guess_decimal_input():
+    result = evaluate_guess("guess 50.9", 60, 0, 1)
+    assert result["ok"] is True
+    assert result["guess"] == 50
+    assert result["outcome"] == "Too Low"
+    assert result["score"] == -5
+
+
+def test_parse_guess_extremely_large_value():
+    ok, value, error = parse_guess("guess 999999999999999999999999")
+    assert ok is True
+    assert value == 999999999999999999999999
+    assert error is None
+
+
+def test_evaluate_guess_extremely_large_value():
+    result = evaluate_guess("guess 999999999999999999999999", 1, 0, 1)
+    assert result["ok"] is True
+    assert result["guess"] == 999999999999999999999999
+    assert result["outcome"] == "Too High"
+    assert result["score"] == -5
+
+
 def test_get_attempt_limit_values():
     assert get_attempt_limit("Easy") == 6
     assert get_attempt_limit("Normal") == 8
